@@ -1,33 +1,6 @@
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'theme/app_theme.dart';
-// import 'views/onboarding/onboarding_view.dart';
-// import 'views/home/home_view.dart';
-
-// void main() {
-//   runApp(CoffeeApp());
-// }
-
-// class CoffeeApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return GetMaterialApp(
-//       title: 'Coffee UI',
-//       debugShowCheckedModeBanner: false,
-//       theme: AppTheme.light,
-//       // start at onboarding
-//       home: OnboardingView(),
-//       getPages: [
-//         GetPage(name: '/', page: () => OnboardingView()),
-//         GetPage(name: '/home', page: () => HomeView()),
-//       ],
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';   // <-- Added
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'theme/app_theme.dart';
 import 'views/onboarding/onboarding_view.dart';
 import 'views/home/home_view.dart';
@@ -39,8 +12,8 @@ void main() {
 class CoffeeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(                               // <-- Added Wrapper
-      designSize: const Size(375, 812),                  // iPhone 11 size (common)
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
@@ -48,14 +21,14 @@ class CoffeeApp extends StatelessWidget {
           title: 'Coffee UI',
           debugShowCheckedModeBanner: false,
           theme: AppTheme.light,
-          home: child,                                   // <-- child assigned
+          home: child,
           getPages: [
             GetPage(name: '/', page: () => OnboardingView()),
             GetPage(name: '/home', page: () => HomeView()),
           ],
         );
       },
-      child: OnboardingView(),                           // <-- Starting Screen
+      child: OnboardingView(),
     );
   }
 }
